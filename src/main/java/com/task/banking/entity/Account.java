@@ -1,9 +1,6 @@
 package com.task.banking.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +11,7 @@ import javax.persistence.Id;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 public class Account {
 
@@ -21,12 +19,17 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String username;
+    private String name;
     private String password;
-    private double balance;
+    private double balance = 0;
 
-    public Account(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public double deposit(double amount) {
+        this.balance += amount;
+        return this.balance;
+    }
+
+    public double withdraw(double amount) {
+        this.balance -= amount;
+        return this.balance;
     }
 }
