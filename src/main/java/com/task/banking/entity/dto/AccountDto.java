@@ -1,4 +1,4 @@
-package com.task.banking.entity;
+package com.task.banking.entity.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class AccountDto {
     private String name;
-    private String password;
+    private double amount;
 }
